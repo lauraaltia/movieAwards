@@ -5,31 +5,14 @@ class MovieList extends React.Component {
     super(props);
     this.state = {
       searchWord: "",
-      movies: [
-        {
-          Title: "Titanic",
-          Year: "1997",
-          imdbID: "tt0120338",
-          Type: "movie",
-          Poster:
-            "https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg",
-        },
-        {
-          Title: "Titanic II",
-          Year: "2010",
-          imdbID: "tt1640571",
-          Type: "movie",
-          Poster:
-            "https://m.media-amazon.com/images/M/MV5BMTMxMjQ1MjA5Ml5BMl5BanBnXkFtZTcwNjIzNjg1Mw@@._V1_SX300.jpg",
-        },
-      ],
-
+      movies: [],
       nominations: [],
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.nominateMovie = this.nominateMovie.bind(this);
+    this.unnominateMovie = this.unnominateMovie.bind(this);
   }
 
   nominateMovie(movie) {
@@ -39,11 +22,19 @@ class MovieList extends React.Component {
     }
     for (let i = 0; i < nominations.length; i++) {
       let nominee = nominations[i];
-      if (nominee.Title === movie.Title) return;
+      if (nominee.imdbID === movie.imdbID) return;
     }
 
     this.setState({
       nominations: [...nominations, movie],
+    });
+  }
+
+  unnominateMovie(movie) {
+    this.setState({
+      nominations: this.state.nominations.filter((nominee) => {
+        return movie.imdbID !== nominee.imdbID;
+      }),
     });
   }
 
@@ -108,6 +99,9 @@ class MovieList extends React.Component {
                 <h1>{nominee.Title}</h1>
                 <h2>{nominee.Year}</h2>
                 <img src={nominee.Poster} alt="Poster for Movie" />
+                <button onClick={() => this.unnominateMovie(nominee)}>
+                  Remove
+                </button>
               </div>
             );
           })}
