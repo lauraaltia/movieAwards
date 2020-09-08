@@ -1,0 +1,90 @@
+.movie-list-horizontal-scroll {
+  width: 98%;
+  height: 300px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 8px;
+
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.movie-list-horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.movie {
+  position: relative;
+  margin: 4px;
+  flex-direction: column;
+  flex: 0 0 auto;
+  height: 275px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+}
+
+.movie-poster {
+  padding: 2px;
+  margin: 2px;
+  flex-shrink: 0;
+  height: 162px;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: all 0.4s;
+  width: 122px;
+  align-self: center;
+  text-align: center;
+}
+
+.movie-title {
+  color: #212326;
+  text-align: center;
+  align-self: center;
+  font-size: 0.7em;
+  line-height: 1.33333125;
+  font-weight: 700;
+  max-width: 20ch;
+}
+
+.movie-year {
+  color: #45494f;
+  text-align: center;
+  font-size: 0.65em;
+  line-height: 1.33333125;
+  font-weight: 500;
+  max-width: 15ch;
+}
+
+.movie-nominate-button {
+  cursor: pointer;
+  position: absolute;
+  bottom: 8px;
+  left: 20px;
+
+  border-radius: 4px;
+  align-self: center;
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 0.765em;
+  line-height: 1.133;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
+
+  background-color: #008060;
+  color: #ffffff;
+  padding: 0.5em 1.3em;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 150ms ease;
+  transition-property: background-color, border-color, box-shadow, color;
+}
+
+.movie-nominate-button:hover {
+  background-color: #054a49;
+}
+
+.movie-nominate-button:disabled {
+  background-color: #dddddd;
+}

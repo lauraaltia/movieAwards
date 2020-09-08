@@ -2,15 +2,14 @@ import React from "react";
 
 import "./App.css";
 
-import MovieList from "./components/movieList";
-// import Nominations from .nominations
+import Home from "./components/Home";
 
 // import {}
 
 function App() {
   return (
-    <div>
-      <MovieList />
+    <div className="app">
+      <Home />
     </div>
   );
 }
