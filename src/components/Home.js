@@ -73,7 +73,10 @@ class Home extends React.Component {
   async submitNomination() {
     //TODO: POST request to Database to record nominations
     this.setState({
+      searchWord: "",
+      movies: [],
       nominations: [],
+      searchedWord: "",
     });
   }
 
