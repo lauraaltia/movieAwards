@@ -6,6 +6,7 @@ function MovieList(props) {
   let movies = props.movies;
   let nominateMovie = props.nominateMovie;
   let nominations = props.nominations;
+  let searchedWord = props.searchedWord;
 
   function nominationDisabled(movie) {
     let bool = false;
@@ -18,9 +19,14 @@ function MovieList(props) {
   }
 
   return (
-    <div className="movie-list-horizontal-scroll">
-      {movies.length
-        ? movies.map((movie) => {
+    <div className="movie-container">
+      {" "}
+      {movies.length ? (
+        <div className="movie-container-text">Results for "{searchedWord}"</div>
+      ) : null}
+      <div className="movie-list-horizontal-scroll">
+        {movies.length ? (
+          movies.map((movie) => {
             return (
               <div className="movie" key={movie.imdbID}>
                 {movie.Poster !== "N/A" ? (
@@ -32,6 +38,7 @@ function MovieList(props) {
                 ) : (
                   //TODO: Create unique image for movie poster unavailable
                   <img
+                    className="movie-poster"
                     src={`http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg`}
                     alt="movie poster unavailable"
                   />
@@ -41,6 +48,7 @@ function MovieList(props) {
                   {movie.Title}
                   <span className="movie-year"> ({movie.Year})</span>
                 </div>
+
                 <button
                   className="movie-nominate-button"
                   disabled={nominationDisabled(movie)}
@@ -51,7 +59,13 @@ function MovieList(props) {
               </div>
             );
           })
-        : null}
+        ) : (
+          <div className="movie-search-message">
+            {" "}
+            Please search for your favourite films{" "}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

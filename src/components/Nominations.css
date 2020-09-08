@@ -1,44 +1,45 @@
-.movie-container {
+.nominations-background {
   width: 100%;
-  background-color: #fbf7ed;
-  padding: 5px;
+  background-color: #054a49;
+  height: 500px;
 }
 
-.movie-container-text {
-  margin-top: 5px;
+.nominations-background-text {
+  margin-top: 20px;
   margin-left: 30px;
 
-  color: #054a49;
+  color: #ffffff;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 0.765em;
   letter-spacing: 0.04375em;
 }
 
-.movie-list-horizontal-scroll {
-  width: 99%;
+.nominations-list-horizontal-scroll {
+  width: 700px;
   height: 300px;
-  border: 1px solid transparent;
+  border: 1px;
+  border-radius: 4px;
+  background-color: #ffffff;
   padding: 8px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
 
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
   overflow-x: auto;
   scroll-behavior: smooth;
-  background-color: #fbf7ed;
 }
-
-/* .movie-list-horizontal-scroll::-webkit-scrollbar {
-  display: none;
-} */
 
 .movie {
   position: relative;
-  /* margin: 4px; */
+  margin: 4px;
   flex-direction: column;
   flex: 0 0 auto;
   height: 275px;
+  background-color: #ffffff;
   border: 1px solid #dadce0;
   border-radius: 4px;
 }
@@ -75,7 +76,7 @@
   max-width: 15ch;
 }
 
-.movie-nominate-button {
+.movie-remove-button {
   cursor: pointer;
   position: absolute;
   bottom: 8px;
@@ -107,10 +108,31 @@
   background-color: #dddddd;
 }
 
-.movie-search-message {
-  padding: 30px;
-  color: #054a49;
-  font-weight: 400;
+.nominations-submit-button {
+  cursor: pointer;
+
+  border-radius: 4px;
+  align-self: center;
+  text-align: center;
+
+  font-weight: 700;
   font-size: 1em;
-  max-width: 38ch;
+  line-height: 1.133;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
+
+  background-color: #008060;
+  color: #ffffff;
+  padding: 0.5em 1.3em;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 150ms ease;
+  transition-property: background-color, border-color, box-shadow, color;
+}
+
+.nominations-submit-button:hover {
+  background-color: #054a49;
+}
+
+.nominations-submit-button:disabled {
+  background-color: #dddddd;
 }

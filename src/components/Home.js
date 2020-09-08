@@ -11,6 +11,7 @@ class Home extends React.Component {
       searchWord: "",
       movies: [],
       nominations: [],
+      searchedWord: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -58,6 +59,7 @@ class Home extends React.Component {
     if (searchResults) {
       this.setState({
         movies: searchResults,
+        searchedWord: this.state.searchWord,
       });
     } else {
       // TODO: Create user-friendly error message to say no results were found
@@ -67,9 +69,14 @@ class Home extends React.Component {
     }
   }
 
+  async submitNomination() {
+    //TODO: POST request to Database to record nominations
+  }
+
   render() {
     const movies = this.state.movies;
     const nominations = this.state.nominations;
+    const searchedWord = this.state.searchedWord;
 
     return (
       <div>
@@ -95,7 +102,7 @@ class Home extends React.Component {
             <input
               className="section-heading__search-button"
               type="submit"
-              value="Submit"
+              value="Search"
             />
           </form>
         </div>
@@ -105,6 +112,7 @@ class Home extends React.Component {
             movies={movies}
             nominateMovie={this.nominateMovie}
             nominations={nominations}
+            searchedWord={searchedWord}
           />
         </div>
 
@@ -112,6 +120,7 @@ class Home extends React.Component {
           <Nominations
             nominations={nominations}
             unnominateMovie={this.unnominateMovie}
+            submitNomination={this.submitNomination}
           />
         </div>
       </div>
