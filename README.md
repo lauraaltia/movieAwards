@@ -1,4 +1,4 @@
-# TheShoppies
+# The Shoppies
 
 Nominating your favourite films online for The Shoppies Movie Awards has never been easier or faster. Select five nominees and cast your vote!
 
