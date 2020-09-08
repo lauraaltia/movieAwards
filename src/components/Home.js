@@ -18,6 +18,7 @@ class Home extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.nominateMovie = this.nominateMovie.bind(this);
     this.unnominateMovie = this.unnominateMovie.bind(this);
+    this.submitNomination = this.submitNomination.bind(this);
   }
 
   nominateMovie(movie) {
@@ -71,6 +72,9 @@ class Home extends React.Component {
 
   async submitNomination() {
     //TODO: POST request to Database to record nominations
+    this.setState({
+      nominations: [],
+    });
   }
 
   render() {
